@@ -1,11 +1,10 @@
 #TODO: Need to get reddit API and gather data
 
-from Reddit.Tester import login_information
+from Reddit.RedditMain import on_start
 
 def start():
-    print("Startup")
-    # print(login_information())
-    print(login_information())
+    print("Program Startup")
+    on_start()
 
 
 
