@@ -4,6 +4,7 @@ def login_information():
         'username' : 'SoMuchSigma',
         'password' : 'UrielAndJoe123',
         'secret': 'nnNEcl0emwg7pLSOU2bxiLrRQuBG9g',
-        'personal_use_code' : 'hdTaQBC2BNbZJUxU_sVZ9Q'
+        'clientID' : 'hdTaQBC2BNbZJUxU_sVZ9Q',
+        'user_agent' : 'Daily News Bot v1.0.0 by /u/SoMuchSigma'
     } 
     return account_information
