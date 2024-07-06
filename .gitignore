@@ -123,7 +123,7 @@ celerybeat.pid
 
 # Environments
 .env
-.venv
+.venv/
 env/
 venv/
 ENV/
@@ -163,4 +163,4 @@ cython_debug/
 
 
 # Sensitive Passwords
-Settings/
+Reddit/Settings
