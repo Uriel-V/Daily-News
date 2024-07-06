@@ -8,7 +8,7 @@ from GPT.GPTMain import GPT_start
 def start():
     print("Program Startup")
     subreddit_list = Reddit_start()
-    print("Subreddits accessed")
+    print("Subreddits accessed") 
     GPT_start()
 
 
