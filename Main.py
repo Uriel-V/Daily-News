@@ -9,7 +9,7 @@ def start():
     print("Program Startup")
     subreddit_list = Reddit_start()
     print("Subreddits accessed") 
-    GPT_start()
+    GPT_start(subreddit_list)
 
 
 
