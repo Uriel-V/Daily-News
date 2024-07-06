@@ -15,6 +15,5 @@ env.bak/
 venv.bak/
 
 # Sensitive Passwords
-Reddit/Settings
 Reddit/Settings.py
-GPT/Settings
+GPT/Settings.py
