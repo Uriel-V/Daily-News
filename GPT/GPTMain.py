@@ -1,8 +1,9 @@
 from openai import OpenAI
 from GPT.Prompts import get_reddit_system_prompt
 from GPT.Prompts import get_reddit_user_prompt
+from GPT.Settings import API_key
 
-client = OpenAI(api_key="sk-proj-bCeGRY44GZ8IjHLAhckcT3BlbkFJsZq689sBPzL7dn73PFtV")
+client = OpenAI(api_key= API_key())
 
 
 def GPT_start(data_table):
