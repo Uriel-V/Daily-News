@@ -27,10 +27,11 @@ def get_titles(subreddit, search_limit, target, table):
         retrieve_count += 1
     
 
-def on_start():
+def Reddit_start():
     title_data = []
+    print("Accessing Reddit API...")
     get_titles("politics", 50, 5, title_data)
     get_titles("worldnews", 50, 5, title_data)
     
-    print(title_data)
+    return title_data
 
