@@ -12,7 +12,10 @@ def start():
     GPT_start(subreddit_list)
 
 
+def email_test():
+    print("testing email sender")
 
 
 if __name__ == '__main__':
-    start()
+    # start()
+    email_test()
