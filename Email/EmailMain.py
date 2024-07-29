@@ -1,25 +1,22 @@
 import smtplib
-Subject = 'Python Email Test'
-Body = 'This is the body of the email. Testing testing..'
-Recipient = 'blackwrlds@gmail.com'
+import datetime
+from GPT.Settings import email_key
+from GPT.Settings import email_sender
 
-# Import the email modules we'll need
-# from email.mime.text import MIMEText
+def send_email(Recipient, body):
+    current_time = datetime.datetime.now()
+    subject_time = '(' + str(current_time.month) +'/'+ str(current_time.day) +'/'+ str(current_time.year) + ')'
+ 
 
-# Open a plain text file for reading.  For this example, assume that
-# the text file contains only ASCII characters.
-# with open(textfile, 'rb') as fp:
-#     # Create a text/plain message
-#     msg = MIMEText(fp.read())
-msg = {}
-# me == the sender's email address
-# you == the recipient's email address
-msg['Subject'] = 'The contents of %s' % textfile
-msg['From'] = me
-msg['To'] = Recipient
+    subject = 'Daily News Bot ' + subject_time
+    # body = 'This is the body of the email. Testing testing..'
+    sender = email_sender()
 
-# Send the message via our own SMTP server, but don't include the
-# envelope header.
-s = smtplib.SMTP('localhost')
-s.sendmail(me, [you], msg.as_string())
-s.quit()
+    text = 'Subject: ' + subject + "\n\n" + body
+
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.starttls()
+    server.login(sender, email_key())
+    server.sendmail(sender, Recipient, text)
+    
+    # print(subject)

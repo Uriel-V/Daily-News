@@ -8,7 +8,7 @@ client = OpenAI(api_key= API_key())
 
 def GPT_start(data_table):
     print("Accessing OpenAI...")
-    RedditPrompt(data_table)
+    return RedditPrompt(data_table)
 
 
 def RedditPrompt(data_table):
@@ -17,10 +17,10 @@ def RedditPrompt(data_table):
     messages=[
         # {"role": "system", "content": "You are a poetic assistant, skilled in explaining complex programming concepts with creative flair."},
         # {"role": "user", "content": "Compose a poem that explains the concept of recursion in programming."}
-        {"role": "system", "content": {get_reddit_system_prompt()} },
-        {"role": "user", "content": {get_reddit_user_prompt(data_table)} }
+        {"role": "system", "content": get_reddit_system_prompt() },
+        {"role": "user", "content": get_reddit_user_prompt(data_table) }
     ]
     )
 
-    print(completion.choices[0].message)
-    return completion.choices[0].message
+    # print(completion.choices[0].message.content)
+    return completion.choices[0].message.content

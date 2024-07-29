@@ -3,19 +3,29 @@
 
 
 from Reddit.RedditMain import Reddit_start
+from Email.EmailMain import send_email
 from GPT.GPTMain import GPT_start
+
+def initialize_email_service(Recipiants, Body):
+    print("Initializing Email...")
+    for email_address in Recipiants:
+        send_email(email_address, Body)
+        print("Email sent to " + email_address)
+
+
 
 def start():
     print("Program Startup")
     subreddit_list = Reddit_start()
     print("Subreddits accessed") 
-    GPT_start(subreddit_list)
+    # initialize_email_service(['6jellydonuts@gmail.com'], "Tesing body")
+    message = GPT_start(subreddit_list)
+    print(message)
+    initialize_email_service(['6jellydonuts@gmail.com', 'artley0606@gmail.com'], message)
 
 
-def email_test():
-    print("testing email sender")
 
 
 if __name__ == '__main__':
-    # start()
-    email_test()
+    start()
+    # email_test()
