@@ -16,11 +16,14 @@ def initialize_email_service(Recipiants, Body):
 
 def start():
     print("Program Startup")
+
     subreddit_list = Reddit_start()
     print("Subreddits accessed") 
-    # initialize_email_service(['6jellydonuts@gmail.com'], "Tesing body")
+
     message = GPT_start(subreddit_list)
-    print(message)
+    print("AI message written")
+
+    print("Accessing email service...")
     initialize_email_service(['6jellydonuts@gmail.com', 'artley0606@gmail.com'], message)
 
 
@@ -28,4 +31,3 @@ def start():
 
 if __name__ == '__main__':
     start()
-    # email_test()

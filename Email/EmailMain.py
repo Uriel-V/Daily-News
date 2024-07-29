@@ -9,7 +9,6 @@ def send_email(Recipient, body):
  
 
     subject = 'Daily News Bot ' + subject_time
-    # body = 'This is the body of the email. Testing testing..'
     sender = email_sender()
 
     text = 'Subject: ' + subject + "\n\n" + body
@@ -19,4 +18,3 @@ def send_email(Recipient, body):
     server.login(sender, email_key())
     server.sendmail(sender, Recipient, text)
     
-    # print(subject)
