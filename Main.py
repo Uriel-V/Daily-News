@@ -24,7 +24,7 @@ def start():
     print("AI message written")
 
     print("Accessing email service...")
-    initialize_email_service(['6jellydonuts@gmail.com', 'artley0606@gmail.com'], message)
+    initialize_email_service(['6jellydonuts@gmail.com', 'artley0606@gmail.com', 'uvit@terpmail.umd.edu'], message)
 
 
 

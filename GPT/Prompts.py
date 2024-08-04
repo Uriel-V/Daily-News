@@ -15,3 +15,8 @@ def get_reddit_user_prompt(table):
     for title in table:
         string = string + title + "\n"  
     return string
+
+
+def email_introduction():
+    string = """Welcome to your daily news update! This email brings you the latest headlines from trusted sources such as CNN, CNBC, The Washington Post, Reddit, and BBC. Documentation for this bot can be found on: https://github.com/XiWorl/Daily-News \n\n"""
+    return string
