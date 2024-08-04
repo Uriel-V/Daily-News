@@ -18,5 +18,5 @@ def get_reddit_user_prompt(table):
 
 
 def email_introduction():
-    string = """Welcome to your daily news update! This email brings you the latest headlines from trusted sources such as CNN, CNBC, The Washington Post, Reddit, and BBC. Documentation for this bot can be found on: https://github.com/XiWorl/Daily-News \n\n"""
+    string = """Welcome to your daily news update! This email brings you the latest headlines from trusted sources such as CNN, CNBC, The Washington Post, and BBC News. Documentation for this bot can be found on: https://github.com/XiWorl/Daily-News \n\n"""
     return string
