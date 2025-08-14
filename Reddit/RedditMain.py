@@ -22,7 +22,6 @@ def get_titles(subreddit, search_limit, target, table):
         if submission.stickied == True:
             continue
 
-        # print(f"{submission.title}\n")
         table.append(submission.title)
         retrieve_count += 1
     
