@@ -33,16 +33,16 @@ const scaleOnHover = {
   whileTap: { scale: 0.95 },
 }
 
-const iconFloat = {
-  animate: {
-    y: [0, -10, 0],
-    transition: {
-      duration: 3,
-      repeat: Number.POSITIVE_INFINITY,
-      ease: "easeInOut",
-    },
-  },
-}
+// const iconFloat = {
+//   animate: {
+//     y: [0, -10, 0],
+//     transition: {
+//       duration: 3,
+//       repeat: Number.POSITIVE_INFINITY,
+//       ease: "easeInOut",
+//     },
+//   },
+// }
 
 export default function BrevityLanding() {
   const [email, setEmail] = useState("")
@@ -75,7 +75,7 @@ export default function BrevityLanding() {
     console.log(data.result)
 
     toast.success("Successfully subscribed!", {
-      description: "You'll receive your first digest tomorrow morning.",
+      description: "You&apos;ll receive your first digest tomorrow morning.",
     })
 
     setEmail("")
@@ -95,7 +95,7 @@ export default function BrevityLanding() {
 
     if (!res.ok) {
       toast.error("Failed to unsubscribe", {
-        description: "Your email wasn't found in our database",
+        description: "Your email wasn&apos;t found in our database"
       })
 
       setUnsubscribeEmail("")
@@ -104,7 +104,7 @@ export default function BrevityLanding() {
     }
 
     toast.success("Successfully unsubscribed", {
-      description: "You won't receive any more emails from us.",
+      description: "You won&apos;t receive any more emails from us.",
     })
 
     setUnsubscribeEmail("")
@@ -224,7 +224,7 @@ export default function BrevityLanding() {
           >
             Welcome to Brevity – your shortcut to staying informed without information overload. Each day, we gather the
             most important stories from trusted sources like The Washington Post, CNN, ABC, CNBC, and BBC News. Using
-            advanced natural language processing powered by OpenAI's GPT model, we distill the headlines into clear,
+            advanced natural language processing powered by OpenAI&apos;s GPT model, we distill the headlines into clear,
             concise summaries delivered straight to your inbox. Simply enter your email to start receiving daily digests
             that keep you up to date in just minutes.
           </motion.p>
