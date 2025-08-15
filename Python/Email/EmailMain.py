@@ -3,8 +3,6 @@ import datetime
 import os
 from dotenv import load_dotenv
 from pymongo import MongoClient
-from GPT.Settings import email_key
-from GPT.Settings import email_sender
 from GPT.Prompts import email_introduction
 
 load_dotenv()
@@ -19,13 +17,13 @@ def send_email(recipient, body):
         subject_time = f"({current_time.month}/{current_time.day}/{current_time.year})"
         subject = f"Daily News Bot {subject_time}"
 
-        sender = email_sender()
+        sender = os.getenv("EMAIL_SENDER")
         body = email_introduction() + body
         text = f"Subject: {subject}\n\n{body}"
 
         with smtplib.SMTP('smtp.gmail.com', 587) as server:
             server.starttls()
-            server.login(sender, email_key())
+            server.login(sender, os.getenv("EMAIL_KEY"))
             try:
                 server.sendmail(sender, recipient, text)
                 print(f"Email sent to {recipient}")

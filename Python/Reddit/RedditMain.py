@@ -1,12 +1,14 @@
-from Reddit.Settings import login_information
+import os
+from dotenv import load_dotenv
 import praw
 
+load_dotenv()
+
 #Get information needed to access reddit API from a hidden folder
-login_info = login_information()
 reddit = praw.Reddit(
-    client_id = login_info['clientID'],
-    client_secret = login_info['secret'],
-    user_agent = login_info['user_agent'],
+    client_id = os.getenv("REDDIT_CLIENT_ID"),
+    client_secret = os.getenv("REDDIT_SECRET"),
+    user_agent = os.getenv("REDDIT_USER_AGENT"),
 )
 
 

@@ -1,9 +1,11 @@
+import os
+from dotenv import load_dotenv
 from openai import OpenAI
 from GPT.Prompts import get_reddit_system_prompt
 from GPT.Prompts import get_reddit_user_prompt
-from GPT.Settings import API_key
 
-client = OpenAI(api_key= API_key())
+load_dotenv()
+client = OpenAI(api_key = os.getenv("GPT_API_KEY"))
 
 
 def GPT_start(data_table):

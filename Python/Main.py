@@ -1,4 +1,3 @@
-#THIS IS THE MAIN FILE. START THE CODE FROM HERE
 import os
 
 from fastapi import FastAPI, HTTPException, BackgroundTasks
@@ -20,9 +19,17 @@ app.add_middleware(
 
 def initialize_email_service(Recipiants, Body):
     print("Initializing Email...")
+    seen = set()
     for email_data in Recipiants:
-        send_email(email_data["email"], Body)
-        print("Email sent to " + email_data["email"])
+        email = email_data.get("email")
+        if not email:
+            continue  # skip if missing
+        if email in seen:
+            continue  # skip duplicates
+        seen.add(email)
+
+        send_email(email, Body)
+        print("Email sent to " + email)
 
 
 
@@ -50,7 +57,7 @@ class AdminKey(BaseModel):
 def add_email(data: EmailPayload):
     print(data.text)
     try:
-        add_email_address(data.text)  # pass the string, not the model
+        add_email_address(data.text)  
         return {"result": "Email added", "email": data.text}
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
@@ -80,6 +87,5 @@ def check_admin_key(data: AdminKey):
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
 
-if __name__ == '__main__':
-    print(get_all_emails())
+# if __name__ == '__main__':
     # send_news()
