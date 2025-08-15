@@ -56,8 +56,24 @@ export default function BrevityLanding() {
     if (!email) return
 
     setIsLoading(true)
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    const res = await fetch("http://127.0.0.1:8000/email/add", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text: email })
+    })
+
+    if (!res.ok) {
+      toast.error("Failed to subscribe", {
+        description: "Please retry and enter a valid email address",
+      })
+
+      setEmail("")
+      setIsLoading(false)
+      return
+    }
+
+    const data = await res.json()
+    console.log(data.result)
 
     toast.success("Successfully subscribed!", {
       description: "You'll receive your first digest tomorrow morning.",
@@ -72,8 +88,21 @@ export default function BrevityLanding() {
     if (!unsubscribeEmail) return
 
     setIsLoading(true)
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    const res = await fetch("http://127.0.0.1:8000/email/remove", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text: unsubscribeEmail })
+    })
+
+    if (!res.ok) {
+      toast.error("Failed to unsubscribe", {
+        description: "Your email wasn't found in our database",
+      })
+
+      setUnsubscribeEmail("")
+      setIsLoading(false)
+      return
+    }
 
     toast.success("Successfully unsubscribed", {
       description: "You won't receive any more emails from us.",
@@ -90,15 +119,24 @@ export default function BrevityLanding() {
     }
 
     setIsLoading(true)
-    // Simulate admin authentication and email sending
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    const res = await fetch("http://127.0.0.1:8000/adminkey", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text: adminKey })
+    })
 
-    // TODO: Implement actual email sending function here
-    // This is where the email sending logic would be called
-    console.log("Sending daily digest emails to all subscribers...")
+    if (!res.ok) {
+      toast.error("Incorrect key", {
+        description: "Please enter the correct admin key",
+      })
 
-    toast.success("Emails sent successfully!", {
-      description: "Daily digest has been sent to all subscribers.",
+      setAdminKey("")
+      setIsLoading(false)
+      return
+    }
+
+    toast.success("Correct admin key!", {
+      description: "Admin access granted.",
     })
 
     setAdminKey("")
