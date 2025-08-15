@@ -33,16 +33,16 @@ const scaleOnHover = {
   whileTap: { scale: 0.95 },
 }
 
-// const iconFloat = {
-//   animate: {
-//     y: [0, -10, 0],
-//     transition: {
-//       duration: 3,
-//       repeat: Number.POSITIVE_INFINITY,
-//       ease: "easeInOut",
-//     },
-//   },
-// }
+const iconFloat = {
+  animate: {
+    y: [0, -10, 0],
+    transition: {
+      duration: 3,
+      repeat: Number.POSITIVE_INFINITY,
+      ease: "easeInOut",
+    },
+  },
+}
 
 export default function BrevityLanding() {
   const [email, setEmail] = useState("")
@@ -75,7 +75,7 @@ export default function BrevityLanding() {
     console.log(data.result)
 
     toast.success("Successfully subscribed!", {
-      description: "You&apos;ll receive your first digest tomorrow morning.",
+      description: "You'll receive your first digest tomorrow morning.",
     })
 
     setEmail("")
@@ -95,7 +95,7 @@ export default function BrevityLanding() {
 
     if (!res.ok) {
       toast.error("Failed to unsubscribe", {
-        description: "Your email wasn&apos;t found in our database"
+        description: "Your email wasn't found in our database"
       })
 
       setUnsubscribeEmail("")
@@ -104,7 +104,7 @@ export default function BrevityLanding() {
     }
 
     toast.success("Successfully unsubscribed", {
-      description: "You won&apos;t receive any more emails from us.",
+      description: "You won't receive any more emails from us.",
     })
 
     setUnsubscribeEmail("")
@@ -177,25 +177,38 @@ export default function BrevityLanding() {
       >
         <div className="flex items-center justify-between">
           <motion.div className="flex items-center space-x-3" whileHover={{ scale: 1.05 }}>
-            <motion.div className="p-2 bg-primary/10 rounded-xl" animate="animate">
+            <motion.div
+              className="p-2 bg-primary/10 rounded-xl"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: [0.42, 0, 0.58, 1] }}
+            >
               <Newspaper className="h-8 w-8 text-primary" />
             </motion.div>
             <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Brevity
+              Briefly
             </h1>
           </motion.div>
           <div className="flex items-center space-x-4">
             <ThemeToggle />
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.3 }}
+            <a
+              href="https://github.com/XiWorl/Daily-News"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <Badge variant="secondary" className="text-sm px-4 py-2 bg-primary/10 text-primary border-primary/20">
-                <Sparkles className="w-4 h-4 mr-1" />
-                Daily News Digest
-              </Badge>
-            </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.3 }}
+              >
+                <Badge
+                  variant="secondary"
+                  className="cursor-pointer text-sm px-4 py-2 bg-primary/10 text-primary border-primary/20"
+                >
+                  <Sparkles className="w-4 h-4 mr-1" />
+                  Github
+                </Badge>
+              </motion.div>
+            </a>
           </div>
         </div>
       </motion.header>
@@ -222,7 +235,7 @@ export default function BrevityLanding() {
             animate="animate"
             transition={{ delay: 0.2 }}
           >
-            Welcome to Brevity – your shortcut to staying informed without information overload. Each day, we gather the
+            Welcome to Briefly – your shortcut to staying informed without information overload. Each day, we gather the
             most important stories from trusted sources like The Washington Post, CNN, ABC, CNBC, and BBC News. Using
             advanced natural language processing powered by OpenAI&apos;s GPT model, we distill the headlines into clear,
             concise summaries delivered straight to your inbox. Simply enter your email to start receiving daily digests
@@ -475,7 +488,7 @@ export default function BrevityLanding() {
       >
         <div className="text-center text-muted-foreground">
           <motion.p className="mb-2 text-lg" whileHover={{ scale: 1.05 }}>
-            © 2024 Brevity. All rights reserved.
+            © 2024 Briefly. All rights reserved.
           </motion.p>
           <p className="text-sm flex items-center justify-center space-x-2">
             <span>Powered by OpenAI GPT</span>
