@@ -11,10 +11,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { toast } from "sonner"
-import { Mail, Newspaper, Zap, Shield, Clock, Users, Sparkles, TrendingUp, Globe } from "lucide-react"
+import { Mail, Newspaper, Zap, Shield, Clock, Users, Sparkles} from "lucide-react"
 import { ThemeToggle } from "@/components/theme-toggle"
 
-// Animation variants
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
   animate: { opacity: 1, y: 0 },
@@ -178,7 +177,7 @@ export default function BrevityLanding() {
       >
         <div className="flex items-center justify-between">
           <motion.div className="flex items-center space-x-3" whileHover={{ scale: 1.05 }}>
-            <motion.div className="p-2 bg-primary/10 rounded-xl" variants={iconFloat} animate="animate">
+            <motion.div className="p-2 bg-primary/10 rounded-xl" animate="animate">
               <Newspaper className="h-8 w-8 text-primary" />
             </motion.div>
             <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">

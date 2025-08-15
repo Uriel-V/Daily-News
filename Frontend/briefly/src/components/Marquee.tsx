@@ -12,8 +12,14 @@ const stats = [
   { icon: Globe, value: "11", label: "Trusted Sources" },
 ]
 
+type StatProps = {
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  value: string;
+  label: string;
+};
+
 // Single stat item
-function Stat({ icon: Icon, value, label }: any) {
+function Stat({ icon: Icon, value, label }: StatProps) {
   return (
     <div className="text-center flex-shrink-0 w-48">
       <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-xl mb-3">
@@ -58,7 +64,7 @@ export function Marquee({
         }}
         // pause on hover (optional)
         {...(pauseOnHover && {
-          whileHover: { animationPlayState: "paused" as any },
+          whileHover: { animationPlayState: "paused" as React.CSSProperties["animationPlayState"] }
         })}
       >
         {content.map((s, i) => (
