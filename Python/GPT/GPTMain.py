@@ -1,19 +1,18 @@
 import os
 from dotenv import load_dotenv
 from openai import OpenAI
-from GPT.Prompts import get_reddit_system_prompt
-from GPT.Prompts import get_reddit_user_prompt
+from GPT.Prompts import get_reddit_system_prompt, get_reddit_user_prompt
 
 load_dotenv()
-client = OpenAI(api_key = os.getenv("GPT_API_KEY"))
 
 
 def GPT_start(data_table):
     print("Accessing OpenAI...")
-    return RedditPrompt(data_table)
+    client = OpenAI(api_key = os.getenv("GPT_API_KEY"))
+    return RedditPrompt(data_table, client)
 
 
-def RedditPrompt(data_table):
+def RedditPrompt(data_table, client):
     completion = client.chat.completions.create(
     model="gpt-3.5-turbo",
     messages=[
