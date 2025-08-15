@@ -55,7 +55,7 @@ export default function BrevityLanding() {
     if (!email) return
 
     setIsLoading(true)
-    const res = await fetch("http://127.0.0.1:8000/email/add", {
+    const res = await fetch("https://daily-news-tfhw.onrender.com/email/add", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text: email })
@@ -87,7 +87,7 @@ export default function BrevityLanding() {
     if (!unsubscribeEmail) return
 
     setIsLoading(true)
-    const res = await fetch("http://127.0.0.1:8000/email/remove", {
+    const res = await fetch("https://daily-news-tfhw.onrender.com/email/remove", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text: unsubscribeEmail })
@@ -118,7 +118,7 @@ export default function BrevityLanding() {
     }
 
     setIsLoading(true)
-    const res = await fetch("http://127.0.0.1:8000/adminkey", {
+    const res = await fetch("https://daily-news-tfhw.onrender.com/adminkey", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text: adminKey })
