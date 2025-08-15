@@ -2,6 +2,7 @@
 
 import type React from "react"
 import { useState } from "react"
+import { Marquee } from "@/components/Marquee"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -247,34 +248,12 @@ export default function BrevityLanding() {
           >
             <div className="relative">
               <motion.div
-                className="flex space-x-16"
-                animate={{
-                  x: [0, -100 * 4], // Move by 4 items width
-                }}
-                transition={{
-                  duration: 15,
-                  repeat: Number.POSITIVE_INFINITY,
-                  ease: "linear",
-                }}
+                className="mb-16"
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
               >
-                {[
-                  { icon: Users, value: "50+", label: "Active Subscribers" },
-                  { icon: TrendingUp, value: "100%", label: "Satisfaction Rate" },
-                  { icon: Globe, value: "11", label: "Trusted Sources" },
-                  { icon: Sparkles, value: "500+", label: "Summaries generated" },
-                  { icon: Users, value: "50+", label: "Active Subscribers" },
-                  { icon: TrendingUp, value: "100%", label: "Satisfaction Rate" },
-                  { icon: Globe, value: "11", label: "Trusted Sources" },
-                  { icon: Sparkles, value: "500+", label: "Summaries generated" },
-                ].map((stat, index) => (
-                  <motion.div key={index} className="text-center flex-shrink-0 w-48" whileHover={{ scale: 1.05 }}>
-                    <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-xl mb-3">
-                      <stat.icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <div className="text-2xl font-bold text-foreground">{stat.value}</div>
-                    <div className="text-sm text-muted-foreground">{stat.label}</div>
-                  </motion.div>
-                ))}
+                <Marquee speed={20} />
               </motion.div>
             </div>
           </motion.div>
