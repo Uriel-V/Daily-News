@@ -12,7 +12,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "https://daily-news-gsza15itp-sonicfav-3392s-projects.vercel.app/"],
+    allow_origins=["http://localhost:3000", "https://daily-news-gsza15itp-sonicfav-3392s-projects.vercel.app/", "https://daily-news-coral-one.vercel.app/"],
     allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["*"],
 )
