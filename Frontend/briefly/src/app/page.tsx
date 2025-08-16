@@ -61,10 +61,20 @@ export default function BrevityLanding() {
       body: JSON.stringify({ text: email })
     })
 
+    let responseData;
+    try {
+      responseData = await res.json();
+    } catch {
+      responseData = {};
+    }
+
     if (!res.ok) {
       toast.error("Failed to subscribe", {
         description: "Please retry and enter a valid email address",
       })
+
+      console.log("Response:")
+      console.log(responseData?.detail)
 
       setEmail("")
       setIsLoading(false)
