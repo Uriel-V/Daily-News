@@ -35,7 +35,6 @@ def send_email(recipient, body):
                 print(f"Failed to send to {recipient}: {e}")
 
     except Exception as e:
-        # Any setup/login errors — log and skip
         print(f"SMTP setup failed for {recipient}: {e}")
     
 def get_collection():

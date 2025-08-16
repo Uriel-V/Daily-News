@@ -73,16 +73,10 @@ export default function BrevityLanding() {
         description: "Please retry and enter a valid email address",
       })
 
-      console.log("Response:")
-      console.log(data?.detail)
-
       setEmail("")
       setIsLoading(false)
       return
     }
-
-    // const data = await res.json()
-    console.log(data.result)
 
     toast.success("Successfully subscribed!", {
       description: "You'll receive your first digest tomorrow morning.",

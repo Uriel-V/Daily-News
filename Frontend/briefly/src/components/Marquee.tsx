@@ -1,4 +1,3 @@
-// components/Marquee.tsx
 "use client"
 
 import { motion } from "framer-motion"
@@ -18,7 +17,6 @@ type StatProps = {
   label: string;
 };
 
-// Single stat item
 function Stat({ icon: Icon, value, label }: StatProps) {
   return (
     <div className="text-center flex-shrink-0 w-48">
@@ -31,21 +29,18 @@ function Stat({ icon: Icon, value, label }: StatProps) {
   )
 }
 
-// Marquee (duplicates the row once, then translates from 0% to -50%)
 export function Marquee({
-  speed = 20, // seconds per loop
+  speed = 20,
   pauseOnHover = true,
 }: {
   speed?: number
   pauseOnHover?: boolean
 }) {
-  // Two copies back-to-back; loop from 0% to -50%
   const content = [...stats, ...stats]
 
   return (
     <div
       className="relative overflow-hidden"
-      // Optional fading edges
       style={{
         maskImage:
           "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
@@ -55,14 +50,12 @@ export function Marquee({
     >
       <motion.div
         className="flex gap-16 will-change-transform"
-        // smooth, constant velocity
         animate={{ x: ["0%", "-50%"] }}
         transition={{
           duration: speed,
           repeat: Infinity,
           ease: "linear",
         }}
-        // pause on hover (optional)
         {...(pauseOnHover && {
           whileHover: { animationPlayState: "paused" as React.CSSProperties["animationPlayState"] }
         })}

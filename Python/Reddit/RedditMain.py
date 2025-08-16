@@ -6,7 +6,6 @@ load_dotenv()
 
 
 def get_reddit():
-    #Get information needed to access reddit API from a hidden folder
     return praw.Reddit(
         client_id = os.getenv("REDDIT_CLIENT_ID"),
         client_secret = os.getenv("REDDIT_SECRET"),
@@ -14,7 +13,6 @@ def get_reddit():
     )
 
 
-#Get the titles of a selected subreddit and add them to a list
 def get_titles(subreddit, search_limit, target, table):
     subreddit = get_reddit().subreddit(subreddit)
     retrieve_count = 0

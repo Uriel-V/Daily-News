@@ -13,7 +13,9 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:3000", 
-                   "https://daily-news-coral-one.vercel.app"],
+                   "https://daily-news-coral-one.vercel.app",
+                   "brieflynews.vercel.app",
+                   "https://daily-news-mtvd6fff6-sonicfav-3392s-projects.vercel.app/"],
     allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["*"],
 )
@@ -24,15 +26,13 @@ def initialize_email_service(Recipiants, Body):
     for email_data in Recipiants:
         email = email_data.get("email")
         if not email:
-            continue  # skip if missing
+            continue  
         if email in seen:
-            continue  # skip duplicates
+            continue 
         seen.add(email)
 
         send_email(email, Body)
         print("Email sent to " + email)
-
-
 
 def send_news():
     print("Program Startup")
@@ -46,7 +46,6 @@ def send_news():
     print("Accessing email service...")
     email_list = get_all_emails()
     initialize_email_service(email_list, message)
-
 
 class EmailPayload(BaseModel):
     text: str
@@ -88,5 +87,3 @@ def check_admin_key(data: AdminKey):
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
 
-# if __name__ == '__main__':
-    # send_news()
