@@ -195,7 +195,7 @@ export default function BrevityLanding() {
           <div className="flex items-center space-x-4">
             <ThemeToggle />
             <a
-              href="https://github.com/XiWorl/Daily-News"
+              href="https://github.com/Uriel-V/Daily-News"
               target="_blank"
               rel="noopener noreferrer"
             >
