@@ -359,7 +359,7 @@ export default function BrevityLanding() {
                       <motion.div className="p-2 bg-primary/10 rounded-lg" whileHover={{ scale: 1.1, rotate: 10 }}>
                         <Mail className="h-6 w-6 text-primary" />
                       </motion.div>
-                      <span>Join Our Daily Digest</span>
+                      <span>Join Our News Delivery Service</span>
                     </CardTitle>
                     <CardDescription className="text-lg">
                       Get the most important news delivered to your inbox every morning
@@ -390,7 +390,7 @@ export default function BrevityLanding() {
                               className="w-5 h-5 border-2 border-white border-t-transparent rounded-full mr-2"
                             />
                           ) : null}
-                          {isLoading ? "Subscribing..." : "Subscribe to Daily Digest"}
+                          {isLoading ? "Subscribing..." : "Subscribe to Briefly"}
                         </Button>
                       </motion.div>
                     </form>
@@ -419,7 +419,7 @@ export default function BrevityLanding() {
                   <CardHeader className="text-center">
                     <CardTitle className="text-xl">Unsubscribe</CardTitle>
                     <CardDescription>
-                      Sorry to see you go! Enter your email to unsubscribe from our daily digest
+                      Sorry to see you go! Enter your email to unsubscribe from our Briefly
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -477,7 +477,7 @@ export default function BrevityLanding() {
                           className="w-full h-12 bg-gradient-to-r from-secondary to-primary hover:from-secondary/90 hover:to-primary/90 shadow-lg hover:shadow-xl transition-all duration-300"
                           disabled={isLoading}
                         >
-                          {isLoading ? "Sending Emails..." : "Open Admin Panel"}
+                          {isLoading ? "Verifying Admin Key..." : "Open Admin Panel"}
                         </Button>
                       </motion.div>
                     </div>

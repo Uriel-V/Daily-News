@@ -19,7 +19,7 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: "Brevity - Daily News Digest",
+  title: "Briefly - Daily News Digest",
   description: "Stay informed without information overload. AI-powered daily news summaries from trusted sources.",
   generator: "v0.app",
 }
