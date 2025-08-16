@@ -13,7 +13,3 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-
-# Sensitive Passwords
-Python/Reddit/Settings.py
-Python/GPT/Settings.py
