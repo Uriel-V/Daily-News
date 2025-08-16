@@ -61,11 +61,11 @@ export default function BrevityLanding() {
       body: JSON.stringify({ text: email })
     })
 
-    let responseData;
+    let data;
     try {
-      responseData = await res.json();
+      data = await res.json();
     } catch {
-      responseData = {};
+      data = {};
     }
 
     if (!res.ok) {
@@ -74,14 +74,14 @@ export default function BrevityLanding() {
       })
 
       console.log("Response:")
-      console.log(responseData?.detail)
+      console.log(data?.detail)
 
       setEmail("")
       setIsLoading(false)
       return
     }
 
-    const data = await res.json()
+    // const data = await res.json()
     console.log(data.result)
 
     toast.success("Successfully subscribed!", {
