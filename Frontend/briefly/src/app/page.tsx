@@ -145,7 +145,7 @@ export default function BrevityLanding() {
     }
 
     toast.success("Correct admin key!", {
-      description: "Admin access granted.",
+      description: "Emails have been delievered.",
     })
 
     setAdminKey("")
